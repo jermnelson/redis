@@ -29,11 +29,11 @@ COPYRIGHT
 
 */
 
-#include "redis.h"
 
 #ifndef DOUBLE_METAPHONE__H
 #define DOUBLE_METAPHONE__H
 
+#include "redis.h"
 
 typedef struct
 {
@@ -50,4 +50,5 @@ DoubleMetaphone(char *str,
                 char **codes);
 
 void getMetaphone(redisClient *c);
+
 #endif /* DOUBLE_METAPHONE__H */

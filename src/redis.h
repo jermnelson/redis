@@ -70,7 +70,7 @@ typedef long long mstime_t; /* millisecond time type. */
 #include "endianconv.h"
 #include "crc64.h"
 
-#include "double_metaphone.h"
+/*#include "double_metaphone.h" */
 
 /* Error codes */
 #define REDIS_OK                0
