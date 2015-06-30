@@ -62,6 +62,8 @@
 #include "version.h" /* Version macro */
 #include "util.h"    /* Misc functions useful in many places */
 
+#include "double_metaphone.h"
+
 /* Error codes */
 #define REDIS_OK                0
 #define REDIS_ERR               -1

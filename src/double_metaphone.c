@@ -5,7 +5,7 @@
 #include <stdarg.h>
 #include <assert.h>
 #include "double_metaphone.h"
-#include "t_string.h"
+#include "sdsh"
 
 #define META_MALLOC(v,n,t) \
           (v = (t*)malloc(((n)*sizeof(t))))
@@ -13,7 +13,9 @@
 	                  (v = (t*)realloc((v),((n)*sizeof(t))))
 #define META_FREE(x) free((x))
 
-metastring *
+
+
+sds *
 NewMetaString(char *init_str)
 {
     metastring *s;
@@ -58,7 +60,6 @@ void getMetaphone(redisClient *c) {
 void setMetaphone(redisClient *c} {
    c->argv[2] = tryObjectEncoding(c->argv[2]);
     setGenericCommand(c,1,c->argv[1],c->argv[2],NULL,0);
-
 }
 
 void
@@ -71,7 +72,7 @@ IncreaseBuffer(metastring * s, int chars_needed)
 
 
 void
-MakeUpper(metastring * s)
+MakeUpper(sds * s)
 {
     char *i;
 
@@ -83,7 +84,7 @@ MakeUpper(metastring * s)
 
 
 int
-IsVowel(metastring * s, int pos)
+IsVowel(sds * s, int pos)
 {
     char c;
 
@@ -99,9 +100,7 @@ IsVowel(metastring * s, int pos)
 }
 
 
-int
-SlavoGermanic(metastring * s)
-{
+int SlavoGermanic(sds * s) {
     if ((char *) strstr(s->str, "W"))
 	return 1;
     else if ((char *) strstr(s->str, "K"))
@@ -115,17 +114,14 @@ SlavoGermanic(metastring * s)
 }
 
 
-int
-GetLength(metastring * s)
-{
-    return s->length;
+size_t GetLength(sds * s) {
+    return sdslen(s);
 }
 
 
-char
-GetAt(metastring * s, int pos)
+char GetAt(sds * s, int pos)
 {
-    if ((pos < 0) || (pos >= s->length))
+    if ((pos < 0) || (pos >= sdslen(s)))
 	return '\0';
 
     return ((char) *(s->str + pos));

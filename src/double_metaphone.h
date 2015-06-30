@@ -29,6 +29,8 @@ COPYRIGHT
 
 */
 
+#include "redis.h"
+
 #ifndef DOUBLE_METAPHONE__H
 #define DOUBLE_METAPHONE__H
 
@@ -47,5 +49,5 @@ void
 DoubleMetaphone(char *str,
                 char **codes);
 
-
+void getMetaphone(redisClient *c);
 #endif /* DOUBLE_METAPHONE__H */
