@@ -1,6 +1,6 @@
 /*
     Redis double metaphone commands extend the c code in the Fuzzy 
-    Python module at ttps://bitbucket.org/yougov/fuzzy/. 
+    Python module at https://bitbucket.org/yougov/fuzzy/. 
  
     The original double_metaphone is based on the perl Metaphone module developed
     by Maurice Aubrey and licensed thus:
@@ -50,5 +50,6 @@ DoubleMetaphone(char *str,
                 char **codes);
 
 void getMetaphone(redisClient *c);
+void setMetaphone(redisClient *c);
 
 #endif /* DOUBLE_METAPHONE__H */

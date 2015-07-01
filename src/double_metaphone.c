@@ -51,12 +51,20 @@ DestroyMetaString(metastring * s)
 
 void getMetaphone(redisClient *c) {
     getGenericCommand(c);
+    printf("Reply not found %s value \n", c->reply[1]);
+    /*if (strncmp(c->reply[0], "$-1", 3) == 0) {
+        printf("Reply not found\n");
+    }*/
 }
 
 
 void setMetaphone(redisClient *c) {
+  printf("In setMetaphone\n ");
+  /*addReply(c, ok_reply ? ok_reply : shared.ok);
    c->argv[2] = tryObjectEncoding(c->argv[2]);
     setGenericCommand(c,1,c->argv[1],c->argv[2],NULL,0);
+  printf("Argv[2] %s", c->argv[2]); */
+
 
 }
 
