@@ -32,7 +32,6 @@
 #include "slowlog.h"
 #include "bio.h"
 #include "latency.h"
-#include "double_metaphone.h"
 
 #include <time.h>
 #include <signal.h>

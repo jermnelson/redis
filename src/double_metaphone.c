@@ -51,7 +51,8 @@ DestroyMetaString(metastring * s)
 
 void getMetaphone(redisClient *c) {
     getGenericCommand(c);
-    printf("Reply not found %s value \n", c->reply[1]);
+    printf("Last command  %s command reply %s \n", c->argv[0]->ptr, c->argv[1]->ptr);
+    printf("Redis args %s flags for this client: %s\n", c->reply, (c->flags & REDIS_MASTER));
     /*if (strncmp(c->reply[0], "$-1", 3) == 0) {
         printf("Reply not found\n");
     }*/

@@ -49,7 +49,5 @@ void
 DoubleMetaphone(char *str,
                 char **codes);
 
-void getMetaphone(redisClient *c);
-void setMetaphone(redisClient *c);
 
 #endif /* DOUBLE_METAPHONE__H */

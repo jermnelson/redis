@@ -1089,6 +1089,7 @@ void pauseClients(mstime_t duration);
 int clientsArePaused(void);
 int processEventsWhileBlocked(void);
 
+
 #ifdef __GNUC__
 void addReplyErrorFormat(redisClient *c, const char *fmt, ...)
     __attribute__((format(printf, 2, 3)));
@@ -1591,3 +1592,8 @@ void redisLogHexDump(int level, char *descr, void *value, size_t len);
     printf("-- MARK %s:%d --\n", __FILE__, __LINE__)
 
 #endif
+
+/* Specific Metaphone function Commands in metaphone.c */
+void getMetaphone(redisClient *c);
+void setMetaphone(redisClient *c);
+
