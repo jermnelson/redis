@@ -52,6 +52,9 @@ DestroyMetaString(metastring * s)
 void getMetaphone(redisClient *c) {
     getGenericCommand(c);
     printf("Last command  %s command reply %s \n", c->argv[0]->ptr, c->argv[1]->ptr);
+    char output[64];
+    DoubleMetaphone(c->argv[1]->ptr, output);
+    printf("Metastring %d\n", output);
     printf("Redis args %s flags for this client: %s\n", c->reply, (c->flags & REDIS_MASTER));
     /*if (strncmp(c->reply[0], "$-1", 3) == 0) {
         printf("Reply not found\n");
@@ -1181,8 +1184,8 @@ DoubleMetaphone(char *str, char **codes)
 	    default:
 		current += 1;
 	    }
-        /* printf("PRIMARY: %s\n", primary->str);
-        printf("SECONDARY: %s\n", secondary->str);  */
+        printf("PRIMARY: %s\n", primary->str);
+        printf("SECONDARY: %s\n", secondary->str);  
       }
 
 
